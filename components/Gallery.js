@@ -1,19 +1,21 @@
 import { Container, Row, Col, Image } from 'react-bootstrap';
 
 const Gallery = () => {
+  const images = [
+    'https://images.unsplash.com/photo-1613490493576-7fde63acd811?q=80&w=1742&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
+    'https://plus.unsplash.com/premium_photo-1671358689953-ee06a6671fce?q=80&w=2064&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
+    'https://plus.unsplash.com/premium_photo-1682377521625-c656fc1ff3e1?q=80&w=1740&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
+  ];
+
   return (
     <Container id="gallery" className="py-5 bg-light">
       <h2 className="text-center mb-4">Gallery</h2>
       <Row>
-        <Col md={4} className="mb-4">
-          <Image src="https://via.placeholder.com/400x300" thumbnail />
-        </Col>
-        <Col md={4} className="mb-4">
-          <Image src="https://via.placeholder.com/400x300" thumbnail />
-        </Col>
-        <Col md={4} className="mb-4">
-          <Image src="https://via.placeholder.com/400x300" thumbnail />
-        </Col>
+        {images.map((src, index) => (
+          <Col md={4} className="mb-4" key={index}>
+            <Image src={src} thumbnail fluid />
+          </Col>
+        ))}
       </Row>
     </Container>
   );
